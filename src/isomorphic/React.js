@@ -44,9 +44,9 @@ if (__DEV__) {
     warning(
       warned,
       'React.__spread is deprecated and should not be used. Use ' +
-      'Object.assign directly or another helper function with similar ' +
-      'semantics. You may be seeing this warning due to your compiler. ' +
-      'See https://fb.me/react-spread-deprecation for more details.'
+        'Object.assign directly or another helper function with similar ' +
+        'semantics. You may be seeing this warning due to your compiler. ' +
+        'See https://fb.me/react-spread-deprecation for more details.',
     );
     warned = true;
     return Object.assign.apply(null, arguments);
@@ -54,7 +54,6 @@ if (__DEV__) {
 }
 
 var React = {
-
   // Modern
 
   Children: {
@@ -100,7 +99,7 @@ if (__DEV__) {
         warning(
           didWarnPropTypesDeprecated,
           'Accessing PropTypes via the main React package is deprecated. Use ' +
-          'the prop-types package from npm instead.'
+            'the prop-types package from npm instead.',
         );
         didWarnPropTypesDeprecated = true;
         return ReactPropTypes;

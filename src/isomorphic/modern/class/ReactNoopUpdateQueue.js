@@ -19,11 +19,12 @@ function warnNoop(publicInstance, callerName) {
     warning(
       false,
       '%s(...): Can only update a mounted or mounting component. ' +
-      'This usually means you called %s() on an unmounted component. ' +
-      'This is a no-op. Please check the code for the %s component.',
+        'This usually means you called %s() on an unmounted component. ' +
+        'This is a no-op. Please check the code for the %s component.',
       callerName,
       callerName,
-      constructor && (constructor.displayName || constructor.name) || 'ReactClass'
+      (constructor && (constructor.displayName || constructor.name)) ||
+        'ReactClass',
     );
   }
 }
@@ -32,7 +33,6 @@ function warnNoop(publicInstance, callerName) {
  * This is the abstract API for an update queue.
  */
 var ReactNoopUpdateQueue = {
-
   /**
    * Checks whether or not this composite component is mounted.
    * @param {ReactClass} publicInstance The instance we want to test.
@@ -52,7 +52,7 @@ var ReactNoopUpdateQueue = {
    * @param {?function} callback Called after state is updated.
    * @internal
    */
-  enqueueCallback: function(publicInstance, callback) { },
+  enqueueCallback: function(publicInstance, callback) {},
 
   /**
    * Forces an update. This should only be invoked when it is known with
@@ -98,6 +98,28 @@ var ReactNoopUpdateQueue = {
    */
   enqueueSetState: function(publicInstance, partialState) {
     warnNoop(publicInstance, 'setState');
+  },
+
+  /**
+   * Sets a subset of the props.
+   *
+   * @param {ReactClass} publicInstance The instance that should rerender.
+   * @param {object} partialProps Subset of the next props.
+   * @internal
+   */
+  enqueueSetProps: function(publicInstance, partialProps) {
+    warnNoop(publicInstance, 'setProps');
+  },
+
+  /**
+   * Replaces all of the props.
+   *
+   * @param {ReactClass} publicInstance The instance that should rerender.
+   * @param {object} props New props.
+   * @internal
+   */
+  enqueueReplaceProps: function(publicInstance, props) {
+    warnNoop(publicInstance, 'replaceProps');
   },
 };
 

@@ -60,6 +60,7 @@ var paths = {
       'src/renderers/testing/ReactTestReconcileTransaction.js',
 
       'src/ReactVersion.js',
+      'src/isomorphic/classic/element/**/*.js',
       'src/shared/**/*.js',
       '!src/shared/vendor/**/*.js',
       '!src/**/__benchmarks__/**/*.js',
